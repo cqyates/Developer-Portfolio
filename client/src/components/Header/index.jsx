@@ -1,7 +1,9 @@
+import Nav from "../Navbar";
+import "./style.css"
 const Header = () => {
   return (
     <header>
-      <h1>Corey Q. Yates</h1>
+      <Nav/>
     </header>
   )
 }

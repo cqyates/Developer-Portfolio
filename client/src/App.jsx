@@ -33,11 +33,13 @@ function App() {
 
 
   return (
+    <div style={{border: "1px solid black"}}>
     <ApolloProvider client={client}>
       <Header/>
       <Outlet/>
       <Footer/>
     </ApolloProvider>
+    </div>
   )
 }
 
