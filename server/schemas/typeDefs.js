@@ -27,7 +27,7 @@ const typeDefs = `
 
   type Query {
     me:User
-    tech: [Tech]
+    user: User
     projects: [Project]
   }
 
