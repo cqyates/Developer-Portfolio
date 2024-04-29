@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
+const techSchema = require("./Tech")
 
 const userSchema = new Schema(
   {
@@ -19,8 +19,22 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    
-    
+    admin: {
+      type: Boolean,
+      default: false
+    },
+    techStack: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Tech"
+      }
+    ],
+    projects: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Project',
+      },
+    ]
   },
  
   {
