@@ -13,12 +13,13 @@ db.once('open', async () => {
   await cleanDB("Tech", "teches")
  const techArray = await Tech.insertMany(techData);
 
- const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {techStack: techArray }}, {new: true})
+  await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {techStack: techArray }}, {new: true})
 
   await cleanDB("Project", "projects")
   const projectArray = await Project.insertMany(projectData);
  
   const updatedUser2 = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {projects: projectArray }}, {new: true})
   console.log(updatedUser2)
+  console.log("successfully added primary user and attached tech and projects to primary user")
   process.exit(0);
 });

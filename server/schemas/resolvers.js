@@ -13,18 +13,9 @@ const resolvers = {
       throw AuthenticationError;
     },
      //tested succesfully from Apollo Server
-    users: async (parent, args, context) => {
-      return User.find({})
-    }
+    
   },
   Mutation: {
-    //tested succesfully from Apollo Server
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
-
-      return { token, user };
-    },
      //tested succesfully from Apollo Server
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
