@@ -7,9 +7,9 @@ const HomePage = () => {
   // const userData = data?.me || {};
 
   // for visitors to my website to see my work
-  const {loading, data} = useQuery(QUERY_USER)
-  const userData = data?.user || {}
-  console.log(userData)
+  // const {loading, data} = useQuery(QUERY_USER)
+  // const userData = data?.user || {}
+  // console.log(userData)
   return (
     <div>
       <h1>Home Page Placeholder</h1>
