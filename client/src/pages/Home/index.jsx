@@ -1,5 +1,5 @@
-import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../../utils/queries';
+// import { useQuery } from '@apollo/client';
+// import { QUERY_USER } from '../../utils/queries';
 const HomePage = () => {
   //for signed in user to create edit and admin privileges
 
