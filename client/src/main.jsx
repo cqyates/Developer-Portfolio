@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import Projects from "./pages/Projects"
 import Recommendations from './pages/Recommendations'
 import Resume from "./pages/Resume"
+import Contact from "./pages/Contact"
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/resume',
         element: <Resume />
+      },
+      {
+        path: '/contact',
+        element: <Contact />
       },
     ]
   }
