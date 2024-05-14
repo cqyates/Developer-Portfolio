@@ -22,6 +22,9 @@ const PageNav = () => {
           <Nav.Link as={Link} to="/resume">
             Resume
           </Nav.Link>
+          <Nav.Link as={Link} to="/contact">
+            Contact Me
+          </Nav.Link>
         </Navbar.Collapse>
 
         <Navbar.Toggle />
