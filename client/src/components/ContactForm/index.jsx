@@ -84,7 +84,7 @@ const ContactForm = () => {
        name='jobLead'
        value={contactForm.jobLead}
        onChange={handleInputChange}
-       label="This is about a job"
+       label="I want to discuss a job opportunity"
        >
 
       </Form.Check>
@@ -94,7 +94,7 @@ const ContactForm = () => {
        name='studentLead'
        value={contactForm.studentLead}
        onChange={handleInputChange}
-       label="This is about booking tutoring sessions"
+       label="I want to book a tutoring session"
        >
 
       </Form.Check>
@@ -104,7 +104,7 @@ const ContactForm = () => {
        name='consultingLead'
        value={contactForm.consultingLead}
        onChange={handleInputChange}
-       label="Check here if you want to discuss website design and ecommerce consulting"
+       label="I want to discuss website design and ecommerce consulting"
        >
 
       </Form.Check>
