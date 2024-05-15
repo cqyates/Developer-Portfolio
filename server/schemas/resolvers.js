@@ -25,13 +25,15 @@ const resolvers = {
      //tested succesfully from Apollo Server
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+      console.log(user) //passed this point
       if (!user) {
         throw AuthenticationError;
       }
 
       const correctPw = await user.isCorrectPassword(password);
-
+      console.log(correctPw)
+      //fails here which means that the problem is BCRYPT
+      //solution create a signup mutation
       if (!correctPw) {
         throw AuthenticationError;
       }
