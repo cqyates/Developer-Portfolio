@@ -9,7 +9,7 @@ const ContactForm = () => {
     submitted: false,
     received: false,
     read: false,
-    returned: false,
+    responded: false,
     jobLead: false,
     studentLead: false,
     consultingLead: false
@@ -104,7 +104,7 @@ const ContactForm = () => {
        name='consultingLead'
        value={contactForm.consultingLead}
        onChange={handleInputChange}
-       label="I want to discuss website design and ecommerce consulting"
+       label="I want to discuss web design and ecommerce consulting"
        >
 
       </Form.Check>

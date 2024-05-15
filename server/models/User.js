@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const techSchema = require("./Tech")
+const messageSchema = require("./Message")
 
 const userSchema = new Schema(
   {
@@ -34,7 +34,8 @@ const userSchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: 'Project',
       },
-    ]
+    ],
+    messages: [messageSchema]
   },
  
   {
