@@ -9,6 +9,7 @@ import Projects from "./pages/Projects"
 import Recommendations from './pages/Recommendations'
 import Resume from "./pages/Resume"
 import Contact from "./pages/Contact"
+import AdminPanel from "./pages/AdminPanel"
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />
+      },
+      //this should only appear after I sign in on the navbar
+      {
+        path: '/admin',
+        element: <AdminPanel />
       },
     ]
   }

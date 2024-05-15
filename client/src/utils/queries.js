@@ -7,18 +7,12 @@ export const QUERY_ME = gql`
       username
       email
       admin
-      techStack {
-        name
-      }
       projects {
         title
         description
         githubLink
         deployedLink
         imageName
-        tech {
-          name
-        }
       }
     }
   }

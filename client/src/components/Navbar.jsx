@@ -25,6 +25,9 @@ const PageNav = () => {
           <Nav.Link as={Link} to="/contact">
             Contact Me
           </Nav.Link>
+          <Nav.Link as={Link} to="/admin">
+           Admin Tools
+          </Nav.Link>
         </Navbar.Collapse>
 
         <Navbar.Toggle />
