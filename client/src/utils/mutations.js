@@ -11,3 +11,23 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+export const SEND_MESSAGE = gql`
+mutation sendMessage($messageData: MessageInput!) {
+  sendMessage(messageData: $messageData) {
+    messages {
+      consultingLead
+      contactEmail
+      contactName
+      jobLead
+      message
+      messageId
+      read
+      received
+      responded
+      studentLead
+      submitted
+    }
+    username
+  }
+}
+`

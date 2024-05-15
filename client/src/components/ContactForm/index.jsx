@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-
+import {useMutation} from "@apollo/client"
+import {SEND_MESSAGE} from "../../utils/mutations"
 const ContactForm = () => {
+
   const [contactForm, setContactForm] = useState({
     contactName: '',
     contactEmail: '',
@@ -14,6 +16,8 @@ const ContactForm = () => {
     studentLead: false,
     consultingLead: false
   });
+  const [sendMessage, { error }] = useMutation(SEND_MESSAGE)
+
   const handleInputChange=(e)=> {
   const {name, value} = e.target 
   setContactForm({...contactForm, [name]:value })
@@ -41,10 +45,24 @@ const ContactForm = () => {
   console.log(contactForm.consultingLead)
   }
 
-  const handleContactForm = (e) => {
+  const handleContactForm = async (e) => {
     e.preventDefault();
     console.log(contactForm)
     //create mutation for contact form and connect to back end.
+    try {
+      const { data } = await sendMessage({
+        variables: { messageData: { ...contactForm } },
+      });
+      console.log(data);
+      console.log("success")
+      window.location.href = "/"
+      
+    } catch (err) {
+      console.error(err);
+      console.log(error)
+    }
+
+ 
     //change screen to success message or icon.
   };
   return (
