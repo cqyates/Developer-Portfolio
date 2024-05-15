@@ -39,7 +39,10 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-  
+    sendMessage: async (parent, {messageData}) => {
+      const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {messages: messageData}}, {new: true, runValidators: true})
+      return updatedUser
+    }
   },
 };
 

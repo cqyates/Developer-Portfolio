@@ -6,6 +6,32 @@ const typeDefs = `
     admin: Boolean
     techStack: [Tech]
     projects: [Project]
+    messages: [Message]
+  }
+  type Message {
+    messageId: ID!
+    contactName: String!
+    contactEmail: String!
+    message: String!
+    submitted: Boolean
+    received: Boolean
+    read: Boolean
+    responded: Boolean
+    jobLead: Boolean
+    studentLead: Boolean
+    consultingLead: Boolean
+  }
+  input MessageInput {
+    contactName: String!
+    contactEmail: String!
+    message: String!
+    submitted: Boolean
+    received: Boolean
+    read: Boolean
+    responded: Boolean
+    jobLead: Boolean
+    studentLead: Boolean
+    consultingLead: Boolean
   }
   type Project {
     _id: ID!
@@ -33,6 +59,7 @@ const typeDefs = `
 
   type Mutation {
     login(email: String!, password: String!): Auth
+    sendMessage(messageData: MessageInput!): User
   }
 `;
 
