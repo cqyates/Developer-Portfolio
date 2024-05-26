@@ -9,7 +9,7 @@ import Projects from "./pages/Projects"
 import Recommendations from './pages/Recommendations'
 import Resume from "./pages/Resume"
 import Contact from "./pages/Contact"
-
+import AdminPage from "./pages/Admin"
 const router = createBrowserRouter([
   {
     path: '/',
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact />
+      },
+      {
+        path: '/admin',
+        element: <AdminPage />
       },
     ]
   }
