@@ -4,14 +4,14 @@
     "description": "A react front end application with images pulled from the unsplash api",
     "deployedLink": "https://cqyates.github.io/react-image-finder/",
     "githubLink": "https://github.com/cqyates/react-image-finder",
-    "imageName": ""
+    "imageName": "assets/images/screenshots/react-image-search.png"
   },
   {
     "title": "Vintage4me2.com",
     "description": "My long standing shopify webstore for my vintage sewing pattern ecommerce business. Fully Integrated with Facebook, Pinterest, Google and Klaviyo Email CMS. Use collections and filters to create a side menu to quickly navigate through many different options. Source code is properietry",
     "deployedLink": "https://www.vintage4me2.com/",
     "githubLink": "https://www.vintage4me2.com/",
-    "imageName": ""
+    "imageName": "assets/images/screenshots/vintage4me2-image.png"
   
   }
 ]
