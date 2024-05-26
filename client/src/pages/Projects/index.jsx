@@ -1,14 +1,11 @@
-import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../../utils/queries';
-import ProjectCarousel from '../../components/Carosel/Carosel';
+
+import ProjectCarousel from '../../components/Carousel/Carousel';
 const ProjectPage = () => {
-  const { loading, data } = useQuery(QUERY_USER);
-  // const userData = data?.user || {}
-  const projectsArray = data?.user.projects || [];
+  
 
   return (
     <section>
-      <ProjectCarousel projects={projectsArray} />
+      <ProjectCarousel />
     </section>
   );
 };
