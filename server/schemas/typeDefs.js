@@ -60,6 +60,7 @@ const typeDefs = `
   type Mutation {
     login(email: String!, password: String!): Auth
     sendMessage(messageData: MessageInput!): User
+    createAccount(email: String!, username: String!, password: String!): Auth
   }
 `;
 
