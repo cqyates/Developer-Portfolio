@@ -44,6 +44,11 @@ const resolvers = {
     sendMessage: async (parent, {messageData}) => {
       const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {messages: messageData}}, {new: true, runValidators: true})
       return updatedUser
+    },
+    createAccount: async (parent, {email, username, password}) => {
+      const newUser = await User.create({email, username, password})
+      const token = signToken(newUser);
+      return { token, newUser };
     }
   },
 };
