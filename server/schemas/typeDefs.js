@@ -40,6 +40,8 @@ const typeDefs = `
     firstName: String!
     lastName: String!
     recommendationText: String!
+    currentCompany: String
+    github: String
   }
   type Project {
     _id: ID!

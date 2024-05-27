@@ -47,6 +47,8 @@ export const QUERY_USER = gql`
         firstName
         lastName
         recommendationText
+        currentCompany
+        github
       }
     }
   }
