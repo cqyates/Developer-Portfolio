@@ -17,6 +17,7 @@ const RecommendationPage = () => {
         </Card.Header>
         <Card.Body>
           <Card.Text>{recommendation.recommendationText}</Card.Text>
+          {recommendation.relationship === "former student"? <Card.Subtitle>Github</Card.Subtitle>: <Card.Subtitle>Current Company</Card.Subtitle>}
         </Card.Body>
       </Card>
     ))}
