@@ -35,7 +35,13 @@ const userSchema = new Schema(
         ref: 'Project',
       },
     ],
-    messages: [messageSchema]
+    messages: [messageSchema],
+    recommendations: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Recommendation'
+      }
+    ]
   },
  
   {

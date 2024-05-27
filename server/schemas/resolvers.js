@@ -13,7 +13,7 @@ const resolvers = {
       throw AuthenticationError;
     },
     user: async () => {
-      return await User.findOne({username: "CoreyQ"}).populate("techStack").populate("projects")
+      return await User.findOne({username: "CoreyQ"}).populate("techStack").populate("projects").populate("recommendations")
     },
     projects: async () => {
       return await Project.find()

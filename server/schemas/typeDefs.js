@@ -7,6 +7,7 @@ const typeDefs = `
     techStack: [Tech]
     projects: [Project]
     messages: [Message]
+    recommendations: [Recommendation]
   }
   type Message {
     messageId: ID!
@@ -32,6 +33,13 @@ const typeDefs = `
     jobLead: Boolean
     studentLead: Boolean
     consultingLead: Boolean
+  }
+  type Recommendation {
+    _id: ID!
+    relationship: String!
+    firstName: String!
+    lastName: String!
+    recommendationText: String!
   }
   type Project {
     _id: ID!

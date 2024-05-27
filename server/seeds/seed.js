@@ -1,10 +1,11 @@
 const db = require('../config/connection');
-const { User, Project, Tech } = require('../models');
+const { User, Project, Tech, Recommendation } = require('../models');
 const cleanDB = require('./cleanDB');
 
 const techData = require('./techData.json');
 const userData = require('./userData.json');
 const projectData = require('./projects.json')
+const recommendationsData = require("./recommendations.json")
 db.once('open', async () => {
   await cleanDB('User', 'users');
 
@@ -19,7 +20,9 @@ db.once('open', async () => {
   const projectArray = await Project.insertMany(projectData);
  
   const updatedUser2 = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {projects: projectArray }}, {new: true})
-  console.log(updatedUser2)
+  const recommendationsArray = await Recommendation.insertMany(recommendationsData)
+  const updatedUser3 = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {recommendations: recommendationsArray }}, {new: true})
   console.log("successfully added primary user and attached tech and projects to primary user")
+  console.log(updatedUser3)
   process.exit(0);
 });

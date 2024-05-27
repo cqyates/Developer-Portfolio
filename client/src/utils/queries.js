@@ -42,6 +42,12 @@ export const QUERY_USER = gql`
           name
         }
       }
+      recommendations {
+        relationship
+        firstName
+        lastName
+        recommendationText
+      }
     }
   }
 `;
