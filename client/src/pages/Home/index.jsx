@@ -1,5 +1,6 @@
 // import { useQuery } from '@apollo/client';
 // import { QUERY_USER } from '../../utils/queries';
+import JumboTron from "../../components/JumboTron"
 const HomePage = () => {
   //for signed in user to create edit and admin privileges
 
@@ -11,9 +12,7 @@ const HomePage = () => {
   // const userData = data?.user || {}
   // console.log(userData)
   return (
-    <div>
-      <h1>Home Page Placeholder</h1>
-    </div>
+    <JumboTron />
   )  
 }
 
