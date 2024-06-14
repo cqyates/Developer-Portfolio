@@ -1,0 +1,100 @@
+h1 {
+  text-align: center;
+  width: 90%;
+  font-family: 'Carattere', cursive;
+  font-weight: bolder;
+  font-size: 3.25rem;
+  letter-spacing: .25rem;
+  color: white;
+  top: 36%
+}
+
+h2 {
+  text-align: center;
+  width: 90%;
+  font-family: 'Carattere', cursive;
+  font-weight: bolder;
+  font-size: 2rem;
+  letter-spacing: .25rem;
+  color: white;
+  top: 48%
+}
+/* header {
+  background-image: linear-gradient(to top right, var(--gradOne), var(--gradTwo));
+  padding: 2em 0
+} */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.nav-link {
+  margin: 2em
+}
+@media screen and (max-width: 1930px) {
+  h1 {
+   top: 33%
+  }
+  h2 {
+    top: 45%
+  }
+}
+@media screen and (max-width: 1360px) {
+  h1 {
+   top: 30%
+  }
+  h2 {
+    top: 42%
+  }
+}
+@media screen and (max-width: 1070px) {
+  h1 {
+   top: 27%
+  }
+  h2 {
+    top: 39%
+  }
+}
+@media screen and (max-width: 990px) {
+  h1 {
+   top: 24%
+  }
+  h2 {
+    top: 36%
+  }
+}
+@media screen and (max-width: 830px) {
+  h1 {
+   top: 10%;
+   font-size: 3rem
+  }
+  h2 {
+    top: 20%;
+    font-size: 1.75rem
+  }
+}
+
+@media screen and (max-width: 540px) {
+  h1 {
+   top: 10%;
+   font-size: 2.5rem
+  }
+  h2 {
+    top: 20%;
+    font-size: 1rem
+  }
+}
+@media screen and (max-width: 460px) {
+  h1 {
+   top: 10%;
+   font-size: 2rem
+  }
+  h2 {
+    top: 18%;
+    font-size: 1rem
+  }
+}
+/* @media screen and (max-width: 1280px) {
+  h1 {
+    top: 25%
+  }
+} */
