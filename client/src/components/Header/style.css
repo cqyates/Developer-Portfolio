@@ -1,14 +1,15 @@
-h1 {
+h1, h2 {
   text-align:right;
-  color: var(--lightOne);
+  width: 25vw;
   font-family: 'Carattere', cursive;
-  font-weight: 400;
+  font-weight: bolder;
   font-size: 70px;
+  letter-spacing: .25rem;
 }
-header {
+/* header {
   background-image: linear-gradient(to top right, var(--gradOne), var(--gradTwo));
   padding: 2em 0
-}
+} */
 .container {
   display: flex;
   flex-direction: column;

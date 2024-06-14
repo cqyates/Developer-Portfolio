@@ -8,14 +8,14 @@ const PageNav = () => {
   const [showModal, setShowModal] = useState(false)
   console.log(Auth.loggedIn)
   return (
-    <>
+    <div style={{width: "fit-content", position: "absolute", top: "2%", right: "5%", color: "white",  fontFamily: "'Carattere', cursive", fontSize: "1.25rem"}}>
     <Navbar>
-      <Navbar.Brand>
+      {/* <Navbar.Brand>
         <img src={logo}/>
-      </Navbar.Brand>
+      </Navbar.Brand> */}
       <Container>
-       <h1>Corey Q. Yates</h1>
-        <Navbar.Collapse>
+      
+        <Navbar.Collapse style={{display: "flex", flexDirection: "column"}}>
           <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
@@ -72,7 +72,7 @@ const PageNav = () => {
        </Modal.Body>
      </Tab.Container>
    </Modal>
-   </>
+   </div>
   );
 };
 export default PageNav;
