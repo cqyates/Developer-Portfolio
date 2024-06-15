@@ -1,6 +1,9 @@
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
-import Card from "react-bootstrap/Card"
+import Card from "react-bootstrap/Card";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col"
+import MiniNav from "../../components/MiniNav";
 const RecommendationPage = () => {
   const {loading, data} = useQuery(QUERY_USER)
   const recommendationArray= data?.user.recommendations || []
@@ -8,7 +11,11 @@ const RecommendationPage = () => {
   //const userData = data?.user || {}
   
   return (
-    <section>
+    <Row>
+      <Col lg={3}>
+      <MiniNav/>
+      </Col>
+      <Col lg={8}>
     {recommendationArray.map((recommendation)=> (
       <Card key={recommendation._id}>
         <Card.Header>
@@ -21,7 +28,8 @@ const RecommendationPage = () => {
         </Card.Body>
       </Card>
     ))}
-    </section>
+    </Col>
+    </Row>
   )  
 }
 

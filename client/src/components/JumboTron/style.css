@@ -28,7 +28,7 @@ h2 {
   flex-direction: column;
 }
 .nav-link {
-  margin: 2em
+  margin: 1.5em
 }
 @media screen and (max-width: 1930px) {
   h1 {

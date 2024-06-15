@@ -66,6 +66,7 @@ const ContactForm = () => {
     //change screen to success message or icon.
   };
   return (
+    <div style={{backgroundColor: "white"}}>
     <Form onSubmit={handleContactForm}>
       <Form.Group className="mb-3">
         <Form.Label htmlFor="name">Name</Form.Label>
@@ -131,6 +132,7 @@ const ContactForm = () => {
         Submit
       </Button>
     </Form>
+    </div>
   );
 };
 

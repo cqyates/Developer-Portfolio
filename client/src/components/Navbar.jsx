@@ -8,14 +8,14 @@ const PageNav = () => {
   const [showModal, setShowModal] = useState(false)
   console.log(Auth.loggedIn)
   return (
-    <div style={{width: "fit-content", position: "absolute", top: "2%", right: "5%", color: "white",  fontFamily: "'Carattere', cursive", fontSize: "1.25rem"}}>
-    <Navbar>
+    <div style={{width: "fit-content", position: "absolute", top: "2%", right: "4%", color: "white",  fontFamily: "'Carattere', cursive", fontSize: "1.5rem", height: "90%"}}>
+    <Navbar style={{height: "100%"}}>
       {/* <Navbar.Brand>
         <img src={logo}/>
       </Navbar.Brand> */}
-      <Container>
+      <Container style={{height: "100%"}}>
       
-        <Navbar.Collapse style={{display: "flex", flexDirection: "column"}}>
+        <Navbar.Collapse style={{display: "flex", flexDirection: "column", justifyContent: "space-around",height: "100%"}}>
           <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
@@ -26,12 +26,12 @@ const PageNav = () => {
             Recommendations
           </Nav.Link>
           <Nav.Link as={Link} to="/resume">
-            Resume
           </Nav.Link>
+            Resume
           <Nav.Link as={Link} to="/contact">
             Contact Me
           </Nav.Link>
-          {Auth.loggedIn() ? (
+          {/* {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/admin'>
                    Admin Tools
@@ -40,7 +40,7 @@ const PageNav = () => {
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login</Nav.Link>
-              )}
+              )} */}
         </Navbar.Collapse>
 
         <Navbar.Toggle />

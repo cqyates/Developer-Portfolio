@@ -2,15 +2,18 @@
 
 import ContactForm from "../../components/ContactForm"
 import { Col, Row } from "react-bootstrap"
+import MiniNav from "../../components/MiniNav"
+
 const ContactPage = () => {
   return (
-    <Row >
-      <h1> Contact Me Page </h1>
-      <Col lg={2}></Col>
+    <Row style={{border: "3px dotted pink"}}>
+      <Col style={{border: "3px dotted pink"}} lg={3}>
+      <MiniNav/>
+      </Col>
       <Col lg={8}>
       <ContactForm />
       </Col>
-      <Col lg={2}></Col>
+     
     </Row>
   )
 }
