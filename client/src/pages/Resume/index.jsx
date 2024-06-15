@@ -1,10 +1,14 @@
 import { Row, Col } from 'react-bootstrap';
 import CoreyQYatesResumeImg from '../../assets/resume/CoreyQYatesPrimaryResume.png';
 import CoreyQYatesPrimaryResume from '../../assets/resume/CoreyYatesResume.pdf';
+import MiniNav from '../../components/MiniNav';
 const ResumePage = () => {
   return (
     <Row>
-      <Col>
+      <Col lg={3}>
+        <MiniNav />
+      </Col>
+      <Col lg={8}>
         <a href={CoreyQYatesPrimaryResume} download>
           <img
             src={CoreyQYatesResumeImg}

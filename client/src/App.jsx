@@ -32,10 +32,12 @@ function App() {
 
 
   return (
-   
+  
     <ApolloProvider client={client}>
-      <Outlet/>
+      <main style={{border: "3px solid yellow"}}>
+      <Outlet />
       <Footer/>
+      </main>
     </ApolloProvider>
   )
 }
