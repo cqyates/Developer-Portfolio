@@ -9,14 +9,14 @@ const RecommendationPage = () => {
   const recommendationArray = data?.user.recommendations || [];
 
   return (
-    <section>
+    <section >
       <Row>
         <Col lg={3}>
           <MiniNav />
         </Col>
-        <Col lg={8}>
+        <Col lg={8} style={{display: "flex", justifyContent: "space-around"}}>
           {recommendationArray.map((recommendation) => (
-            <Card key={recommendation._id}>
+            <Card key={recommendation._id} style={{width: "36em", height: "fit-content"}}>
               <Card.Header>
                 <Card.Title>
                   {recommendation.firstName + ' ' + recommendation.lastName}
