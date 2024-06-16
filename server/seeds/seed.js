@@ -19,7 +19,7 @@ db.once('open', async () => {
   await cleanDB("Project", "projects")
   const projectArray = await Project.insertMany(projectData);
  
-  const updatedUser2 = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {projects: projectArray }}, {new: true})
+  await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {projects: projectArray }}, {new: true})
   const recommendationsArray = await Recommendation.insertMany(recommendationsData)
   const updatedUser3 = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {recommendations: recommendationsArray }}, {new: true})
   console.log("successfully added primary user and attached tech and projects to primary user")
