@@ -25,7 +25,7 @@ const resolvers = {
      //tested succesfully from Apollo Server
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      console.log(user) //passed this point
+      console.log("*****", user) //passed this point
       if (!user) {
         throw AuthenticationError;
       }
@@ -46,7 +46,7 @@ const resolvers = {
       return updatedUser
     },
     createAccount: async (parent, {email, username, password}) => {
-      const newUser = await User.create({email, username, password})
+      const newUser = await User.create({email, username, password, admin: true})
       const token = signToken(newUser);
       return { token, newUser };
     }
