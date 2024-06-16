@@ -10,14 +10,10 @@ const PageNav = () => {
   return (
     <div style={{width: "fit-content", position: "absolute", top: "2%", right: "4%", color: "white",  fontFamily: "'Carattere', cursive", fontSize: "1.5rem", height: "90%"}}>
     <Navbar style={{height: "100%"}}>
-      {/* <Navbar.Brand>
-        <img src={logo}/>
-      </Navbar.Brand> */}
       <Container style={{height: "100%"}}>
-      
         <Navbar.Collapse style={{display: "flex", flexDirection: "column", justifyContent: "space-around",height: "100%"}}>
-          <Nav.Link as={Link} to="/">
-            Home
+          <Nav.Link as={Link} to="/about">
+            About Me
           </Nav.Link>
           <Nav.Link as={Link} to="/projects">
             Projects
@@ -26,8 +22,8 @@ const PageNav = () => {
             Recommendations
           </Nav.Link>
           <Nav.Link as={Link} to="/resume">
-          </Nav.Link>
             Resume
+          </Nav.Link>
           <Nav.Link as={Link} to="/contact">
             Contact Me
           </Nav.Link>
@@ -47,12 +43,11 @@ const PageNav = () => {
        
       </Container>
     </Navbar>
-     <Modal
+     {/* <Modal
      size='lg'
      show={showModal}
      onHide={() => setShowModal(false)}
      aria-labelledby='signup-modal'>
-     {/* tab container to do either signup or login component */}
      <Tab.Container defaultActiveKey='login'>
        <Modal.Header closeButton>
          <Modal.Title id='signup-modal'>
@@ -71,7 +66,7 @@ const PageNav = () => {
          </Tab.Content>
        </Modal.Body>
      </Tab.Container>
-   </Modal>
+   </Modal> */}
    </div>
   );
 };
