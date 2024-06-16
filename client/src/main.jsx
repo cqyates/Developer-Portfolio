@@ -19,7 +19,12 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />
-      }, {
+      }, 
+      {
+        path: '/about',
+        element: <Home />
+      },
+      {
         path: '/projects',
         element: <Projects />
       },
