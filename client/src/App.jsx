@@ -1,5 +1,5 @@
-import {Outlet} from "react-router-dom"
-import Footer from "./components/Footer"
+import { Outlet } from 'react-router-dom';
+import Footer from './components/Footer';
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,7 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
-import './App.css'
+import './App.css';
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
@@ -29,17 +29,14 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 function App() {
-
-
   return (
-  
     <ApolloProvider client={client}>
-      <main style={{border: "3px solid yellow"}}>
-      <Outlet />
-      <Footer/>
+      <main>
+        <Outlet />
+        <Footer />
       </main>
     </ApolloProvider>
-  )
+  );
 }
 
-export default App
+export default App;
