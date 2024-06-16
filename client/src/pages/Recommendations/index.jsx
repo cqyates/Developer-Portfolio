@@ -14,10 +14,12 @@ const RecommendationPage = () => {
         <Col lg={3}>
           <MiniNav />
         </Col>
-        <Col lg={8} style={{display: "flex", justifyContent: "space-around"}}>
+        <Col lg={8}>
+          <h2 style={{color: "white"}}>Recommendations</h2>
+          <div style={{display: "flex", justifyContent: "space-around"}}>
           {recommendationArray.map((recommendation) => (
             <Card key={recommendation._id} style={{width: "36em", height: "fit-content"}}>
-              <Card.Header>
+              <Card.Header id={recommendation.relationship}>
                 <Card.Title>
                   {recommendation.firstName + ' ' + recommendation.lastName}
                 </Card.Title>
@@ -33,6 +35,7 @@ const RecommendationPage = () => {
               </Card.Body>
             </Card>
           ))}
+          </div>
         </Col>
       </Row>
     </section>
