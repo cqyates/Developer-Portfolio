@@ -2,7 +2,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import CoreyQYatesResumeImg from '../../assets/resume/myResume.png';
-import CoreyQYatesPrimaryResume from '../../assets/resume/CoreyYatesResume.pdf';
+import CoreyQYatesPrimaryResume from '../../assets/resume/CoreyQYatesResume.pdf';
 
 import MiniNav from '../../components/MiniNav';
 
