@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MiniNav from '../../components/MiniNav';
 const RecommendationPage = () => {
-  const { loading, data } = useQuery(QUERY_USER);
+  const { data } = useQuery(QUERY_USER);
   const recommendationArray = data?.user.recommendations || [];
 
   return (
