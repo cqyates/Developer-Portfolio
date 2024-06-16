@@ -1,15 +1,18 @@
 
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './index.css'
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import Home from "./pages/Home"
 import Projects from "./pages/Projects"
 import Recommendations from './pages/Recommendations'
 import Resume from "./pages/Resume"
 import Contact from "./pages/Contact"
-import AdminPage from "./pages/Admin"
+import Admin from "./pages/Admin"
+import About from "./pages/About"
+
+import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -22,7 +25,7 @@ const router = createBrowserRouter([
       }, 
       {
         path: '/about',
-        element: <Home />
+        element: <About />
       },
       {
         path: '/projects',
@@ -42,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/admin',
-        element: <AdminPage />
+        element: <Admin />
       },
     ]
   }
