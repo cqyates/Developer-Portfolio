@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Footer from './components/Footer';
+
 import {
   ApolloClient,
   InMemoryCache,
@@ -7,10 +7,13 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+
+import Footer from './components/Footer';
+import './App.css';
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
-import './App.css';
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');

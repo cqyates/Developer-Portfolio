@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container'
 
 const PageNav = () => {
   return (
