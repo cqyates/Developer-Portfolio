@@ -20,9 +20,9 @@ db.once('open', async () => {
   const projectArray = await Project.insertMany(projectData);
  
   await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {projects: projectArray }}, {new: true})
-  const recommendationsArray = await Recommendation.insertMany(recommendationsData)
-  const updatedUser3 = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {recommendations: recommendationsArray }}, {new: true})
-  console.log("successfully added primary user and attached tech and projects to primary user")
-  console.log(updatedUser3)
+  // const recommendationsArray = await Recommendation.insertMany(recommendationsData)
+  // const updatedUser3 = await User.findOneAndUpdate({username: "CoreyQ"}, {$addToSet: {recommendations: recommendationsArray }}, {new: true})
+  // console.log("successfully added primary user and attached tech and projects to primary user")
+  // console.log(updatedUser3)
   process.exit(0);
 });

@@ -35,13 +35,27 @@ const typeDefs = `
     consultingLead: Boolean
   }
   type Recommendation {
-    _id: ID!
+    recommendationId: ID!
     relationship: String!
     firstName: String!
     lastName: String!
-    recommendationText: String!
+    currentRole: String
     currentCompany: String
+    recommendationText: String!
     github: String
+    featuredProject: String
+    website: String
+  }
+  input RecommendationInput {
+    relationship: String!
+    firstName: String!
+    lastName: String!
+    currentRole: String
+    currentCompany: String
+    recommendationText: String!
+    github: String
+    featuredProject: String
+    website: String
   }
   type Project {
     _id: ID!
@@ -71,6 +85,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     sendMessage(messageData: MessageInput!): User
     createAccount(email: String!, username: String!, password: String!): Auth
+    sendRecommendation(recommendationData: RecommendationInput!): User
   }
 `;
 

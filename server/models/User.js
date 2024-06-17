@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 const messageSchema = require("./Message")
-
+const recommendationSchema = require("./Recommendation")
 const userSchema = new Schema(
   {
     username: {
@@ -36,12 +36,7 @@ const userSchema = new Schema(
       },
     ],
     messages: [messageSchema],
-    recommendations: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Recommendation'
-      }
-    ]
+    recommendations: [recommendationSchema]
   },
  
   {
