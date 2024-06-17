@@ -20,6 +20,20 @@ export const QUERY_ME = gql`
           name
         }
       }
+      messages {
+        messageId
+        contactName
+        contactEmail
+        message
+        submitted
+        received
+        read
+        responded
+        jobLead
+        studentLead
+        consultingLead
+        dateReceived
+      }
     }
   }
 `;
@@ -29,26 +43,40 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      techStack {
-        name
-      }
+      admin
       projects {
+        _id
         title
         description
         githubLink
         deployedLink
         imageName
-        tech {
-          name
-        }
+      }
+      messages {
+        messageId
+        contactName
+        contactEmail
+        message
+        submitted
+        received
+        read
+        responded
+        jobLead
+        studentLead
+        consultingLead
       }
       recommendations {
+        recommendationId
         relationship
         firstName
         lastName
-        recommendationText
+        currentRole
         currentCompany
+        recommendationText
         github
+        featuredProject
+        website
+        approved
       }
     }
   }
