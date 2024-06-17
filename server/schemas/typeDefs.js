@@ -45,6 +45,7 @@ const typeDefs = `
     github: String
     featuredProject: String
     website: String
+    approved: Boolean
   }
   input RecommendationInput {
     relationship: String!

@@ -45,7 +45,6 @@ const ContactForm = () => {
 
   const handleContactForm = async (e) => {
     e.preventDefault();
-    console.log(contactForm);
     //create mutation for contact form and connect to back end.
     try {
       const { data } = await sendMessage({
@@ -58,11 +57,30 @@ const ContactForm = () => {
       console.error(err);
       console.log(error);
     }
-
+    setContactForm({
+      contactName: '',
+      contactEmail: '',
+      message: '',
+      submitted: false,
+      received: false,
+      read: false,
+      responded: false,
+      jobLead: false,
+      studentLead: false,
+      consultingLead: false,
+    });
     //change screen to success message or icon.
   };
   return (
-    <div style={{ backgroundColor: 'white', width: "80%", margin: "0 auto", borderRadius: "10px", padding: "2em" }}>
+    <div
+      style={{
+        backgroundColor: 'white',
+        width: '80%',
+        margin: '0 auto',
+        borderRadius: '10px',
+        padding: '2em',
+      }}
+    >
       <Form onSubmit={handleContactForm}>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="name">Name</Form.Label>
@@ -92,7 +110,7 @@ const ContactForm = () => {
             name="message"
           ></Form.Control>
         </Form.Group>
-        <Form.Group style={{ width: "40%", margin: "1em auto"}}>
+        <Form.Group style={{ width: '40%', margin: '1em auto' }}>
           <Form.Check
             type="switch"
             id="job-lead"
@@ -118,7 +136,11 @@ const ContactForm = () => {
             label="I want to discuss web design consulting"
           ></Form.Check>
         </Form.Group>
-        <Button className="mb-3" type="submit" style={{backgroundColor: "rgb(150,174,125)"}}>
+        <Button
+          className="mb-3"
+          type="submit"
+          style={{ backgroundColor: 'rgb(150,174,125)' }}
+        >
           Submit
         </Button>
       </Form>

@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 
+import { useMutation } from '@apollo/client';
+import { SEND_RECOMMENDATION } from '../../utils/mutations';
+
 const RecommendationForm = () => {
   const [recForm, setRecForm] = useState({
     relationship: '',
@@ -14,16 +17,37 @@ const RecommendationForm = () => {
     recommendationText: '',
     github: '',
     featuredProject: '',
+    website: '',
   });
-
+  const [sendRecommendation, { error }] = useMutation(SEND_RECOMMENDATION);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setRecForm({ ...recForm, [name]: value });
   };
-  const handleFormSubmit = (e) => {
-    e.preventDefault()
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
     console.log(recForm)
-  }
+    try {
+      const { data } = await sendRecommendation({
+        variables: { recommendationData: { ...recForm } },
+      });
+      console.log('success');
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+    setRecForm({
+      relationship: '',
+      firstName: '',
+      lastName: '',
+      currentRole: '',
+      currentCompany: '',
+      recommendationText: '',
+      github: '',
+      featuredProject: '',
+      website: '',
+    });
+  };
   return (
     <Form onSubmit={handleFormSubmit}>
       <Form.Group>
@@ -32,7 +56,8 @@ const RecommendationForm = () => {
           <option value="coworker">Co-Worker</option>
           <option value="supervisor">Former Supervisor</option>
           <option value="student">Former Student</option>
-          <option value="client">Client</option>
+          <option value="client">Client</option> 
+          <option value="mentor">Mentor</option>
         </Form.Select>
       </Form.Group>
       <Form.Group>
