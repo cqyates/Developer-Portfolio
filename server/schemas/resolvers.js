@@ -45,6 +45,10 @@ const resolvers = {
       const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {messages: messageData}}, {new: true, runValidators: true})
       return updatedUser
     },
+    sendRecommendation: async (parent, {recommendationData}) => {
+      const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {recommendations: recommendationData}}, {new: true, runValidators: true})
+      return updatedUser
+    },
     createAccount: async (parent, {email, username, password}) => {
       const newUser = await User.create({email, username, password, admin: true})
       const token = signToken(newUser);

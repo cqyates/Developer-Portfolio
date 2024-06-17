@@ -42,6 +42,20 @@ const typeDefs = `
     recommendationText: String!
     currentCompany: String
     github: String
+    featuredProject: String
+    website: String
+    approved: Boolean
+  }
+  input RecommendationInput {
+    relationship: String!
+    firstName: String!
+    lastName: String!
+    recommendationText: String!
+    currentCompany: String
+    github: String
+    featuredProject: String
+    website: String
+    approved: Boolean
   }
   type Project {
     _id: ID!
@@ -71,6 +85,7 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     sendMessage(messageData: MessageInput!): User
     createAccount(email: String!, username: String!, password: String!): Auth
+    sendRecommendation(recommendationData: RecommendationInput!): User
   }
 `;
 
