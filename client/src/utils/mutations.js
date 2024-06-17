@@ -31,3 +31,24 @@ mutation sendMessage($messageData: MessageInput!) {
   }
 }
 `
+
+export const SEND_RECOMMENDATION = gql`
+mutation sendRecommendation($recommendationData: RecommendationInput!) {
+  sendRecommendation(recommendationData: $recommendationData) {
+    recommendations {
+      relationship
+      firstName
+      lastName
+      currentRole
+      currentCompany
+      recommendationText
+      github
+      featuredProject
+      website
+      approved
+    }
+    username
+    email
+  }
+}
+`
