@@ -23,7 +23,7 @@ const ContactPage = () => {
           <ContactForm />
         </Col>
         <Col lg={1} style={{ border: '1px solid white', borderRadius: "10px" }}>
-          <ButtonGroup style={{ display: 'flex', flexDirection: 'column', height: "100%", justifyContent: "space-evenly"}}>
+          <ButtonGroup style={{ display: 'flex', flexDirection: 'column', height: "100%", justifyContent: "space-evenly", alignItems: "center"}}>
             <a href="https://github.com/cqyates" target="_blank" rel="noreferrer">
             <FontAwesomeIcon
               icon={faGithub}

@@ -32,9 +32,9 @@ const JumboTron = () => {
           }}
         >
           <Nav.Link as={Link} to="/admin">
-            Admin Tools
+          <h2> Admin</h2>
           </Nav.Link>
-          <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+          <Nav.Link onClick={Auth.logout}><h2>Logout</h2></Nav.Link>
         </div>
       ) : (
         <Nav.Link onClick={() => setShowModal(true)}>
