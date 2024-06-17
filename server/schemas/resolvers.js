@@ -25,15 +25,12 @@ const resolvers = {
      //tested succesfully from Apollo Server
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      console.log("*****", user) //passed this point
       if (!user) {
         throw AuthenticationError;
       }
 
       const correctPw = await user.isCorrectPassword(password);
-      console.log(correctPw)
-      //fails here which means that the problem is BCRYPT
-      //solution create a signup mutation
+  
       if (!correctPw) {
         throw AuthenticationError;
       }
@@ -43,6 +40,10 @@ const resolvers = {
     },
     sendMessage: async (parent, {messageData}) => {
       const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {messages: messageData}}, {new: true, runValidators: true})
+      return updatedUser
+    },
+    sendRecommendation: async (parent, {recommendationData}) => {
+      const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {recommendations: recommendationData}}, {new: true, runValidators: true})
       return updatedUser
     },
     createAccount: async (parent, {email, username, password}) => {
