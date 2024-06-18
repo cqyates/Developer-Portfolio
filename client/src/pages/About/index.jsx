@@ -32,7 +32,11 @@ const About = () => {
                 </Card.Title>
               </Card.Header>
               <Card.Body>
-                <Card.Text>Paragraph about web development</Card.Text>
+                <Card.Text style={{textAlign: "left"}}>
+                  <p>Over the past 5 years, I have found that my go to stack for making code is a React Frontend with a Node.js Backend.  Powered with information from databases like MySQL, MongoDB or Postgres and delievered to the end user with RESTful APIs or an Apollo Server with GraphQL.</p>
+                  <br></br>
+                  <p>As a tutor for students learning the MERN stack, I&#39;ve had the opportunity to jump into hundred of MERN stack projects in development and helped students debug, code and deploy MERN stack applications through platforms like Heroku, Render and Netlify</p>
+                  </Card.Text>
               </Card.Body>
             </Card>
             <Card style={{ width: '40%', margin: '1em' }}>
@@ -42,7 +46,7 @@ const About = () => {
                 </Card.Title>
               </Card.Header>
               <Card.Body>
-                <Card.Text>
+                <Card.Text style={{textAlign: "left"}}>
                   <h4>University of California, Berkeley</h4>
                   <h5>Bachelor&#39;s of Arts in History</h5>
                   <h5>2006</h5>
