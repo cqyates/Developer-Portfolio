@@ -10,6 +10,7 @@ import Resume from "./pages/Resume"
 import Contact from "./pages/Contact"
 import Admin from "./pages/Admin"
 import About from "./pages/About"
+import Thanks from "./pages/Thanks"
 
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/admin',
         element: <Admin />
+      },
+      {
+        path: '/thanks',
+        element: <Thanks />
       },
     ]
   }

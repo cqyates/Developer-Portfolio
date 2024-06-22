@@ -16,7 +16,7 @@ const RecommendationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const { data } = useQuery(QUERY_USER);
   const recommendationArray = data?.user.recommendations || [];
-  console.log(data)
+ 
   return (
     <section>
       <Row>
@@ -60,7 +60,7 @@ const RecommendationPage = () => {
           <div style={{ display: 'flex', justifyContent: 'space-around' }}>
             {recommendationArray.map((recommendation) => (
               <Card
-                key={recommendation._id}
+                key={recommendation.recommendationId}
                 style={{ width: '36em', height: 'fit-content' }}
               >
                 <Card.Header id={recommendation.relationship}>

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { useMutation } from '@apollo/client';
 import { SEND_RECOMMENDATION } from '../../utils/mutations';
 
-const RecommendationForm = () => {
+const RecommendationForm = ({handleModalClose}) => {
   const [recForm, setRecForm] = useState({
     relationship: '',
     firstName: '',
@@ -31,7 +31,7 @@ const RecommendationForm = () => {
         variables: { recommendationData: { ...recForm } },
       });
       console.log('success');
-      console.log(data);
+      window.location.href = "/thanks"
     } catch (err) {
       console.error(err);
     }
