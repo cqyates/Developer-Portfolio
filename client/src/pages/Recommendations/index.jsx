@@ -15,7 +15,8 @@ import RecommendationForm from '../../components/RecommendationForm';
 const RecommendationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const { data } = useQuery(QUERY_USER);
-  const recommendationArray = data?.user.recommendations || [];
+  const unfilteredRecommendationArray = data?.user.recommendations || [];
+  const filteredRecommendationArray = unfilteredRecommendationArray.filter(rec => rec.approved === true)
  
   return (
     <section>
@@ -58,7 +59,7 @@ const RecommendationPage = () => {
             </Tab.Container>
           </Modal>
           <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-            {recommendationArray.map((recommendation) => (
+            {filteredRecommendationArray.map((recommendation) => (
               <Card
                 key={recommendation.recommendationId}
                 style={{ width: '36em', height: 'fit-content' }}
