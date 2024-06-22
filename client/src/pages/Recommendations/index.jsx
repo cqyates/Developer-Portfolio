@@ -16,7 +16,7 @@ const RecommendationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const { data } = useQuery(QUERY_USER);
   const recommendationArray = data?.user.recommendations || [];
-
+  console.log(data)
   return (
     <section>
       <Row>

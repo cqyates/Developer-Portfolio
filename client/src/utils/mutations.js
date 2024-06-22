@@ -47,8 +47,6 @@ mutation sendRecommendation($recommendationData: RecommendationInput!) {
       website
       approved
     }
-    username
-    email
   }
 }
 `

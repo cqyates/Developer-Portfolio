@@ -11,9 +11,9 @@ const About = () => {
         <Col lg={3}>
           <MiniNav />
         </Col>
-        <Col lg={8} style={{ border: '1px solid yellow' }}>
+        <Col lg={8}>
           <h1
-            style={{ color: 'white', border: '1px solid white', width: '100%' }}
+            style={{ color: 'white', width: '100%' }}
           >
             {' '}
             Meet the Developer{' '}
