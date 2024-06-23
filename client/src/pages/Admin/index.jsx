@@ -5,10 +5,24 @@ import MiniNav from '../../components/MiniNav';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
 const Admin = () => {
   const { loading, data } = useQuery(QUERY_USER);
   const recommendationArray = data?.user.recommendations || [];
   const messageArray = data?.user.messages || [];
+
+  const handleRecApproval = (event) => {
+    console.log(event.target.getAttribute("data-id"))
+    console.log("turn approval value to true");
+
+  }
+  const handleRecDelete = (event) => {
+    console.log("delete rec from database")
+  }
   return (
     <section>
       <Row>
@@ -57,6 +71,10 @@ const Admin = () => {
                         </Card.Text>
                         <Card.Text>
                           Approved: {recommendation.approved ? 'Yes' : 'No'}
+                          <div>
+                          <Button type="button" onClick={handleRecApproval} style={{margin: ".5rem", backgroundColor: "green"}} data-id={recommendation.recommendationId}><FontAwesomeIcon icon={faCheck}/></Button>
+                          <Button type="button" onClick={handleRecDelete}  style={{margin: ".5rem", backgroundColor: "red"}}><FontAwesomeIcon icon={faTrash}/></Button>
+                          </div>
                         </Card.Text>
                       </Card.Body>
                     </Card>

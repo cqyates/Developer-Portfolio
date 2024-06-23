@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect } from "react"
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
 
@@ -12,12 +12,11 @@ import Tab from 'react-bootstrap/Tab';
 import MiniNav from '../../components/MiniNav';
 import RecommendationForm from '../../components/RecommendationForm';
 
+
 const RecommendationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const { data } = useQuery(QUERY_USER);
-  const unfilteredRecommendationArray = data?.user.recommendations || [];
-  const filteredRecommendationArray = unfilteredRecommendationArray.filter(rec => rec.approved === true)
- 
+
   return (
     <section>
       <Row>
@@ -58,7 +57,7 @@ const RecommendationPage = () => {
               </Modal.Body>
             </Tab.Container>
           </Modal>
-          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          {/* <div style={{ display: 'flex', justifyContent: 'space-around' }}>
             {filteredRecommendationArray.map((recommendation) => (
               <Card
                 key={recommendation.recommendationId}
@@ -80,7 +79,7 @@ const RecommendationPage = () => {
                 </Card.Body>
               </Card>
             ))}
-          </div>
+          </div> */}
         </Col>
       </Row>
     </section>
