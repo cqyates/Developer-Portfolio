@@ -13,7 +13,7 @@ const resolvers = {
       throw AuthenticationError;
     },
     user: async () => {
-      return await User.findOne({username: "CoreyQ"}).populate("techStack").populate("projects")
+      return await User.findOne({username: "Corey"}).populate("techStack").populate("projects")
     },
     projects: async () => {
       return await Project.find()
@@ -39,18 +39,19 @@ const resolvers = {
       return { token, user };
     },
     sendMessage: async (parent, {messageData}) => {
-      const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {messages: messageData}}, {new: true, runValidators: true})
+      const updatedUser = await User.findOneAndUpdate({username: "Corey"},{$push: {messages: messageData}}, {new: true, runValidators: true})
       return updatedUser
     },
     sendRecommendation: async (parent, {recommendationData}) => {
-      const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {recommendations: recommendationData}}, {new: true, runValidators: true})
+      const updatedUser = await User.findOneAndUpdate({username: "Corey"},{$push: {recommendations: recommendationData}}, {new: true, runValidators: true})
       return updatedUser
     },
     createAccount: async (parent, {email, username, password}) => {
       const newUser = await User.create({email, username, password, admin: true})
       const token = signToken(newUser);
       return { token, newUser };
-    }
+    },
+    
   },
 };
 

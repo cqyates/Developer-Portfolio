@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { useMutation } from '@apollo/client';
 import { SEND_RECOMMENDATION } from '../../utils/mutations';
 
-const RecommendationForm = ({handleModalClose}) => {
+const RecommendationForm = () => {
   const [recForm, setRecForm] = useState({
     relationship: '',
     firstName: '',
@@ -27,7 +27,7 @@ const RecommendationForm = ({handleModalClose}) => {
     e.preventDefault();
     console.log(recForm)
     try {
-      const { data } = await sendRecommendation({
+      await sendRecommendation({
         variables: { recommendationData: { ...recForm } },
       });
       console.log('success');
@@ -165,6 +165,21 @@ const RecommendationForm = ({handleModalClose}) => {
               name="website"
             />
           </Form.Group>
+        </>
+      ) : (
+        <></>
+      )}{recForm.relationship === 'coworker' ? (
+        <>
+          <Form.Group>
+            <Form.Label htmlFor="company">Company:</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={handleInputChange}
+              value={recForm.currentCompany}
+              name="currentCompany"
+            />
+          </Form.Group>
+         
         </>
       ) : (
         <></>
