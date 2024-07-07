@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
 
@@ -11,12 +11,16 @@ import Tab from 'react-bootstrap/Tab';
 
 import MiniNav from '../../components/MiniNav';
 import RecommendationForm from '../../components/RecommendationForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import Auth from '../../utils/auth';
+import './style.css';
 
 const RecommendationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const { loading, data } = useQuery(QUERY_USER);
   const recommendationArray = data?.user.recommendations || [];
-  console.log(recommendationArray);
+  
   if (loading) {
     return <h1>loading</h1>;
   }
@@ -27,34 +31,87 @@ const RecommendationPage = () => {
         <Col lg={3}>
           <MiniNav />
         </Col>
-        <Col lg={8} style={{ border: '1px solid white' }}>
-          <Row style={{ border: '1px solid white' }}>
+        <Col lg={8}>
+          <Row>
             <div
-              style={{ display: 'flex', flexDirection: 'row', margin: '1em' }}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                margin: '1em',
+              }}
             >
-              <h2 style={{ color: 'white' }}>Recommendations</h2>
+              <h1 style={{ color: 'white', margin: '0 auto' }}>
+                Recommendations
+              </h1>
               <Button
                 type="button"
                 onClick={() => setShowModal(true)}
-                style={{ width: 'fit-content', margin: '1em' }}
+                style={{
+                  width: 'fit-content',
+                  margin: '1em auto',
+                  backgroundColor: 'rgb(150,174,125)',
+                  padding: '1rem',
+                }}
               >
-                Add Recommendation
+                <h6 style={{ fontSize: '14pt' }}>Add Your Recommendation</h6>
               </Button>
             </div>
           </Row>
-          <Row style={{ border: '1px solid white', color: 'white' }}>
+          <Row style={{ color: 'white' }}>
             {recommendationArray.length === 0 ? (
               <h1>No Recommendations Found</h1>
             ) : (
-              <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-around"}}>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-around',
+                }}
+              >
                 {recommendationArray.map((recommendation) => (
-                  <Card key={recommendation.recommendationId} style={{width:"32em", marginBottom: "2em"}}>
-                    <Card.Header>
-                      <Card.Title>
-                        {recommendation.firstName} {recommendation.lastName}
-                      </Card.Title>
-                    </Card.Header>
-                    <Card.Body>{recommendation.recommendationText}</Card.Body>
+                  <Card
+                    key={recommendation.recommendationId}
+                    style={{
+                      width: '52rem',
+                      marginBottom: '2em',
+                      height: 'fit-content',
+                    }}
+                  >
+                    <Card.Body>
+                      <Card.Header
+                        id={recommendation.relationship}
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          padding: '1rem',
+                          marginBottom: '1.25rem',
+                        }}
+                      >
+                        <div style={{ textAlign: 'left' }}>
+                          <Card.Title style={{ fontSize: '18pt' }}>
+                            {recommendation.firstName} {recommendation.lastName}
+                          </Card.Title>
+                          <Card.Subtitle style={{ fontSize: '16pt' }}>
+                            {recommendation.currentRole} at{' '}
+                            {recommendation.currentCompany}
+                          </Card.Subtitle>
+                        </div>
+                        <Card.Subtitle style={{ fontSize: '16pt' }}>
+                          {recommendation.relationship}
+                        </Card.Subtitle>
+                      </Card.Header>
+                      <Card.Text
+                        style={{ textAlign: 'left', fontSize: '14pt' }}
+                      >
+                        {recommendation.recommendationText}
+                      </Card.Text>
+                    </Card.Body>
+                    {Auth.loggedIn() ? (
+                      <span style={{ textAlign: 'right' }}>
+                        <FontAwesomeIcon icon={faTrash} size="2x" />
+                      </span>
+                    ) : <></>}
                   </Card>
                 ))}
               </div>

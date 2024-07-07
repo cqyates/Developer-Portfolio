@@ -1,13 +1,13 @@
 #supervisor{
   background-color: rgba(103, 160, 103, 0.643)
 }
-#former{
+#student {
   background-color:  rgba(103, 113, 160, 0.643);
 }
-.card {
-  width: 50em
+#mentor {
+  background-color:  rgba(117, 211, 226, 0.643);
 }
-section {
+/* section {
   display: flex;
   justify-content: space-around;
-}
+} */
