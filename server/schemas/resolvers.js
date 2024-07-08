@@ -51,7 +51,19 @@ const resolvers = {
       const token = signToken(newUser);
       return { token, newUser };
     },
-    
+    removeRecommendation: async (parent, { _id }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { recommendations: { _id } } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw AuthenticationError;
+    },
   },
 };
 
