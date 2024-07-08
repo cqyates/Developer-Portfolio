@@ -19,10 +19,15 @@ import './style.css';
 const RecommendationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const { loading, data } = useQuery(QUERY_USER);
+  //this starts the component as an empty array until you refresh the page
+  //figure out which hook is the best to load the array on componnent load.
   const recommendationArray = data?.user.recommendations || [];
   
   if (loading) {
     return <h1>loading</h1>;
+  }
+  const handleRecDelete = (event) => {
+    console.log(event.target.value)
   }
 
   return (
@@ -108,9 +113,9 @@ const RecommendationPage = () => {
                       </Card.Text>
                     </Card.Body>
                     {Auth.loggedIn() ? (
-                      <span style={{ textAlign: 'right' }}>
-                        <FontAwesomeIcon icon={faTrash} size="2x" />
-                      </span>
+                     
+                         <Button type="button" onClick={handleRecDelete} value={recommendation._id} style={{backgroundColor: "black"}}>Delete</Button>
+            
                     ) : <></>}
                   </Card>
                 ))}
@@ -141,29 +146,6 @@ const RecommendationPage = () => {
               </Modal.Body>
             </Tab.Container>
           </Modal>
-          {/* <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-            {filteredRecommendationArray.map((recommendation) => (
-              <Card
-                key={recommendation.recommendationId}
-                style={{ width: '36em', height: 'fit-content' }}
-              >
-                <Card.Header id={recommendation.relationship}>
-                  <Card.Title>
-                    {recommendation.firstName + ' ' + recommendation.lastName}
-                  </Card.Title>
-                  <Card.Subtitle>{recommendation.relationship}</Card.Subtitle>
-                </Card.Header>
-                <Card.Body>
-                  <Card.Text>{recommendation.recommendationText}</Card.Text>
-                  {recommendation.relationship === 'former student' ? (
-                    <Card.Subtitle>Github</Card.Subtitle>
-                  ) : (
-                    <Card.Subtitle>Current Company</Card.Subtitle>
-                  )}
-                </Card.Body>
-              </Card>
-            ))}
-          </div> */}
         </Col>
       </Row>
     </section>

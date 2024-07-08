@@ -66,6 +66,7 @@ export const QUERY_USER = gql`
         consultingLead
       }
       recommendations {
+        _id
         recommendationId
         relationship
         firstName
