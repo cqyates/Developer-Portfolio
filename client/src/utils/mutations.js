@@ -12,41 +12,62 @@ export const LOGIN_USER = gql`
   }
 `;
 export const SEND_MESSAGE = gql`
-mutation sendMessage($messageData: MessageInput!) {
-  sendMessage(messageData: $messageData) {
-    messages {
-      consultingLead
-      contactEmail
-      contactName
-      jobLead
-      message
-      messageId
-      read
-      received
-      responded
-      studentLead
-      submitted
+  mutation sendMessage($messageData: MessageInput!) {
+    sendMessage(messageData: $messageData) {
+      messages {
+        consultingLead
+        contactEmail
+        contactName
+        jobLead
+        message
+        messageId
+        read
+        received
+        responded
+        studentLead
+        submitted
+      }
+      username
     }
-    username
   }
-}
-`
+`;
 
 export const SEND_RECOMMENDATION = gql`
-mutation sendRecommendation($recommendationData: RecommendationInput!) {
-  sendRecommendation(recommendationData: $recommendationData) {
-    recommendations {
-      relationship
-      firstName
-      lastName
-      currentRole
-      currentCompany
-      recommendationText
-      github
-      featuredProject
-      website
-      approved
+  mutation sendRecommendation($recommendationData: RecommendationInput!) {
+    sendRecommendation(recommendationData: $recommendationData) {
+      recommendations {
+        relationship
+        firstName
+        lastName
+        currentRole
+        currentCompany
+        recommendationText
+        github
+        featuredProject
+        website
+        approved
+      }
     }
   }
-}
-`
+`;
+export const REMOVE_REC = gql`
+  mutation removeRecommendation($id: ID!) {
+    removeRecommendation(_id: $id) {
+      username
+      recommendations {
+        _id
+        recommendationId
+        relationship
+        firstName
+        lastName
+        currentRole
+        currentCompany
+        recommendationText
+        github
+        featuredProject
+        website
+        approved
+      }
+    }
+  }
+`;
