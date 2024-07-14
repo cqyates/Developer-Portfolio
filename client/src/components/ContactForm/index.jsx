@@ -40,7 +40,6 @@ const ContactForm = () => {
         setContactForm({ ...contactForm, consultingLead: false });
       }
     }
-    console.log(contactForm.consultingLead);
   };
 
   const handleContactForm = async (e) => {

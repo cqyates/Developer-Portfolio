@@ -35,7 +35,8 @@ const typeDefs = `
     consultingLead: Boolean
   }
   type Recommendation {
-    recommendationId: ID!
+    _id: ID!
+    recommendationId: String!
     relationship: String!
     firstName: String!
     lastName: String!
@@ -87,6 +88,7 @@ const typeDefs = `
     sendMessage(messageData: MessageInput!): User
     createAccount(email: String!, username: String!, password: String!): Auth
     sendRecommendation(recommendationData: RecommendationInput!): User
+    removeRecommendation(_id: ID!): User
   }
 `;
 

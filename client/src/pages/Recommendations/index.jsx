@@ -1,7 +1,7 @@
-import {useState, useEffect } from "react"
-import { useQuery } from '@apollo/client';
+import { useState } from 'react';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
-
+import { REMOVE_REC } from "../../utils/mutations"
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,11 +11,22 @@ import Tab from 'react-bootstrap/Tab';
 
 import MiniNav from '../../components/MiniNav';
 import RecommendationForm from '../../components/RecommendationForm';
-
+import Auth from '../../utils/auth';
+import './style.css';
 
 const RecommendationPage = () => {
   const [showModal, setShowModal] = useState(false);
-  const { data } = useQuery(QUERY_USER);
+  const { loading, data } = useQuery(QUERY_USER);
+  //this starts the component as an empty array until you refresh the page
+  //figure out which hook is the best to load the array on componnent load.
+  const recommendationArray = data?.user.recommendations || [];
+  
+  if (loading) {
+    return <h1>loading</h1>;
+  }
+  const handleRecDelete = (event) => {
+    console.log(event.target.value)
+  }
 
   return (
     <section>
@@ -24,16 +35,92 @@ const RecommendationPage = () => {
           <MiniNav />
         </Col>
         <Col lg={8}>
-          <div style={{ display: 'flex', flexDirection: 'row', margin: '1em' }}>
-            <h2 style={{ color: 'white' }}>Recommendations</h2>
-            <Button
-              type="button"
-              onClick={() => setShowModal(true)}
-              style={{ width: 'fit-content', margin: '1em' }}
+          <Row>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                margin: '1em',
+              }}
             >
-              Add Recommendation
-            </Button>
-          </div>
+              <h1 style={{ color: 'white', margin: '0 auto' }}>
+                Recommendations
+              </h1>
+              <Button
+                type="button"
+                onClick={() => setShowModal(true)}
+                style={{
+                  width: 'fit-content',
+                  margin: '1em auto',
+                  backgroundColor: 'rgb(150,174,125)',
+                  padding: '1rem',
+                }}
+              >
+                <h6 style={{ fontSize: '14pt' }}>Add Your Recommendation</h6>
+              </Button>
+            </div>
+          </Row>
+          <Row style={{ color: 'white' }}>
+            {recommendationArray.length === 0 ? (
+              <h1>No Recommendations Found</h1>
+            ) : (
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-around',
+                }}
+              >
+                {recommendationArray.map((recommendation) => (
+                  <Card
+                    key={recommendation.recommendationId}
+                    style={{
+                      width: '52rem',
+                      marginBottom: '2em',
+                      height: 'fit-content',
+                    }}
+                  >
+                    <Card.Body>
+                      <Card.Header
+                        id={recommendation.relationship}
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          padding: '1rem',
+                          marginBottom: '1.25rem',
+                        }}
+                      >
+                        <div style={{ textAlign: 'left' }}>
+                          <Card.Title style={{ fontSize: '18pt' }}>
+                            {recommendation.firstName} {recommendation.lastName}
+                          </Card.Title>
+                          <Card.Subtitle style={{ fontSize: '16pt' }}>
+                            {recommendation.currentRole} at{' '}
+                            {recommendation.currentCompany}
+                          </Card.Subtitle>
+                        </div>
+                        <Card.Subtitle style={{ fontSize: '16pt' }}>
+                          {recommendation.relationship}
+                        </Card.Subtitle>
+                      </Card.Header>
+                      <Card.Text
+                        style={{ textAlign: 'left', fontSize: '14pt' }}
+                      >
+                        {recommendation.recommendationText}
+                      </Card.Text>
+                    </Card.Body>
+                    {Auth.loggedIn() ? (
+                     
+                         <Button type="button" onClick={handleRecDelete} value={recommendation._id} style={{backgroundColor: "black"}}>Delete</Button>
+            
+                    ) : <></>}
+                  </Card>
+                ))}
+              </div>
+            )}
+            <div style={{ display: 'flex' }}></div>
+          </Row>
           <Modal
             size="lg"
             show={showModal}
@@ -57,29 +144,6 @@ const RecommendationPage = () => {
               </Modal.Body>
             </Tab.Container>
           </Modal>
-          {/* <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-            {filteredRecommendationArray.map((recommendation) => (
-              <Card
-                key={recommendation.recommendationId}
-                style={{ width: '36em', height: 'fit-content' }}
-              >
-                <Card.Header id={recommendation.relationship}>
-                  <Card.Title>
-                    {recommendation.firstName + ' ' + recommendation.lastName}
-                  </Card.Title>
-                  <Card.Subtitle>{recommendation.relationship}</Card.Subtitle>
-                </Card.Header>
-                <Card.Body>
-                  <Card.Text>{recommendation.recommendationText}</Card.Text>
-                  {recommendation.relationship === 'former student' ? (
-                    <Card.Subtitle>Github</Card.Subtitle>
-                  ) : (
-                    <Card.Subtitle>Current Company</Card.Subtitle>
-                  )}
-                </Card.Body>
-              </Card>
-            ))}
-          </div> */}
         </Col>
       </Row>
     </section>
