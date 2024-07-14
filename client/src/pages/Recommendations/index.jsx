@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
-
+import { REMOVE_REC } from "../../utils/mutations"
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,8 +11,6 @@ import Tab from 'react-bootstrap/Tab';
 
 import MiniNav from '../../components/MiniNav';
 import RecommendationForm from '../../components/RecommendationForm';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth';
 import './style.css';
 
