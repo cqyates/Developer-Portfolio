@@ -1,71 +1,55 @@
 [
   {
-    "name": "JavaScript"
+    "tech_name": "JavaScript",
+    "category_name": "Scripting Languages"
   },
   {
-    "name": "HTML"
+    "tech_name": "HTML",
+    "category_name":"Front End Languages"
   },
   {
-    "name": "CSS"
+    "tech_name": "CSS",
+    "category_name": "Front End Languages"
   },
   {
-    "name": "Node.js"
+    "tech_name": "Node.js",
+    "category_name":"Back End Languages"
   },
   {
-    "name": "Express.js"
+    "tech_name": "Express.js",
+    "category_name": "Back End Languages"
   },
   {
-    "name": "MySQL"
+    "tech_name": "MySQL",
+    "category_name": "Query Languages"
   },
   {
-    "name": "MongoDB"
+    "tech_name": "MongoDB",
+    "category_name": "Query Languages"
   },
   {
-    "name": "React"
+    "tech_name": "React",
+    "category_name":"Front End Languages"
   },
   {
-    "name": "GraphQL"
+    "tech_name": "GraphQL",
+    "category_name": "Query Languages"
   },
   {
-    "name": "Sequelize"
+    "tech_name": "Sequelize",
+    "category_name": "Query Languages"
   },
   {
-    "name": "Handlebars.js"
+    "tech_name": "Handlebars.js",
+    "category_name": "Templating Engines"
   },
   {
-    "name": "Bootstrap"
+    "tech_name": "Bootstrap",
+    "category_name": "CSS Libraries"
   },
   {
-    "name": "PostGres"
-  },
-  {
-    "name": "Sequelize"
-  },
-  {
-    "name": "Agile Development"
-  },
-  {
-    "name": "JQuery"
-  },
-  {
-    "name": "Authentication"
-  },
-  {
-    "name": "AWS"
-  },
-  {
-    "name": "JQuery"
-  },
-  {
-    "name": "RESTful APIs"
-  },
-  { 
-    "name": "Adobe Photoshop"
-  },
-  { 
-    "name": "Shopify CMS"
-  },
-  {
-    "name": "Klaviyo Email Client"
+    "tech_name": "PostGres",
+    "category_name": "Query Languages"
   }
+ 
 ]

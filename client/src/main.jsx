@@ -11,6 +11,7 @@ import Contact from "./pages/Contact"
 import Admin from "./pages/Admin"
 import About from "./pages/About"
 import Thanks from "./pages/Thanks"
+import Skills from "./pages/Skills"
 
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/thanks',
         element: <Thanks />
+      },
+      {
+        path: '/skills',
+        element: <Skills />
       },
     ]
   }

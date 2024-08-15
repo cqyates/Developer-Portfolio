@@ -4,6 +4,7 @@ const typeDefs = `
     username: String!
     email: String!
     admin: Boolean
+    password: String!
     techStack: [Tech]
     projects: [Project]
     messages: [Message]
@@ -69,7 +70,8 @@ const typeDefs = `
     tech: [Tech]
   }
   type Tech {
-    name: String!
+    tech_name: String!
+    category_name: String!
   }
 
   type Auth {
@@ -81,6 +83,7 @@ const typeDefs = `
     me:User
     user: User
     projects: [Project]
+    users: [User]
   }
 
   type Mutation {

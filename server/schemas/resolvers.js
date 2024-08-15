@@ -13,7 +13,10 @@ const resolvers = {
       throw AuthenticationError;
     },
     user: async () => {
-      return await User.findOne({username: "Corey"}).populate("techStack").populate("projects")
+      return await User.findOne({username: "CoreyQ"}).populate("techStack").populate("projects")
+    },
+    users: async () => {
+      return await User.find()
     },
     projects: async () => {
       return await Project.find()
@@ -24,13 +27,14 @@ const resolvers = {
   Mutation: {
      //tested succesfully from Apollo Server
     login: async (parent, { email, password }) => {
+   
       const user = await User.findOne({ email });
       if (!user) {
         throw AuthenticationError;
       }
-
+     //when running test user from seed you need to comment out this line since the password isn't salted.
       const correctPw = await user.isCorrectPassword(password);
-  
+      
       if (!correctPw) {
         throw AuthenticationError;
       }
@@ -39,11 +43,11 @@ const resolvers = {
       return { token, user };
     },
     sendMessage: async (parent, {messageData}) => {
-      const updatedUser = await User.findOneAndUpdate({username: "Corey"},{$push: {messages: messageData}}, {new: true, runValidators: true})
+      const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {messages: messageData}}, {new: true, runValidators: true})
       return updatedUser
     },
     sendRecommendation: async (parent, {recommendationData}) => {
-      const updatedUser = await User.findOneAndUpdate({username: "Corey"},{$push: {recommendations: recommendationData}}, {new: true, runValidators: true})
+      const updatedUser = await User.findOneAndUpdate({username: "CoreyQ"},{$push: {recommendations: recommendationData}}, {new: true, runValidators: true})
       return updatedUser
     },
     createAccount: async (parent, {email, username, password}) => {
